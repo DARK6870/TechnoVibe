@@ -1,0 +1,178 @@
+﻿@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TechnoVibe</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TechnoVibe.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<link rel="icon" type="image/svg" href="/images/T.svg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="logo" style="color: dodgerblue !important">TechnoVibe</a>
+        <div class="navigation">
+            <ul class="menu">
+                <div class="close-btn"></div>
+                <li class="menu-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="menu-item">
+                    <a class="sub-btn" href="#" style="color: white;">Catalog <i class="fas fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="sub-item"><a asp-area="" asp-controller="Product" asp-action="AllProducts">All Products</a></li>
+                        <li class="sub-item more">
+                            <a class="more-btn" href="#">Computers  <i class="fas fa-angle-right"></i></a>
+                            <ul class="more-menu">
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Pc" })">Desctop Pc</a></li>
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Laptop" })">Laptop</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-item more">
+                            <a class="more-btn" href="#">Devices  <i class="fas fa-angle-right"></i></a>
+                            <ul class="more-menu">
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Headphones" })">Headphone</a></li>
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Mouse" })">Mouse</a></li>
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Keyboard" })">Keyboard</a></li>
+                                <li class="more-item"><a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Monitor" })">Monitor</a></li>
+                            </ul>
+                        </li>
+
+					</ul>
+                    @if (User.Identity.IsAuthenticated)
+					{
+						var user = await userManager.GetUserAsync(User);
+
+						try
+						{
+                            if (await userManager.IsInRoleAsync(user, "Admin") || await userManager.IsInRoleAsync(user, "Manager"))
+							{
+							<li class="menu-item">
+								<a class="sub-btn" href="#" style="color: white;">Manage <i class="fas fa-angle-down"></i></a>
+								<ul class="sub-menu">
+                                    <li class="sub-item"><a asp-area="" asp-controller="Supports" asp-action="IndexSupport">Support request</a></li>
+                                    <li class="sub-item"><a asp-area="" asp-controller="Brand" asp-action="IndexBrand">Manage Brands</a></li>
+                                    <li class="sub-item"><a asp-area="" asp-controller="Categories" asp-action="IndexCategory">Manage Categoryes</a></li>
+                                    <li class="sub-item"><a asp-area="" asp-controller="AdminProducts" asp-action="CreateProduct">Manage Products</a></li>
+                                    <li class="sub-item"><a asp-area="" asp-controller="ProductCat" asp-action="IndexPC">Manage Product Categoryes</a></li>
+                                    <li class="sub-item"><a asp-area="" asp-controller="Orders" asp-action="IndexOrder">Manage Orders</a></li>
+								</ul>
+							</li>
+
+							}
+							else if (await userManager.IsInRoleAsync(user, "Driver"))
+							{
+                            <li class="menu-item">
+                                <a class="sub-btn" href="#" style="color: white;">Driver <i class="fas fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li class="sub-item"><a asp-area="" asp-controller="Orders" asp-action="IndexOrder">Orders</a></li>
+                                </ul>
+                            </li>
+							}
+						}
+						catch
+						{
+
+						}
+					}
+                </li>
+                <li class="menu-item"><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="menu-item"><a style="color: gray;" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                }
+                else
+                {
+
+				}
+				<li class="menu-item"><a asp-area="" asp-controller="Home" asp-action="Support">Support</a></li>
+            </ul>
+        </div>
+        <div class="menu-btn"></div>
+    </header>
+    <div class="m main-container" style="margin-left: 0; margin-right: 0;">
+        <main role="main" class="mb-5" style="margin-top: 120px;">
+            <div class="loader"></div>
+            @RenderBody()
+        </main>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <footer class="footer position-relative" style="line-height: 30px; background-color: #23252B;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mt-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="footer-logo" style="color: #1E90FF;">TechnoVibe</a>
+                    <p class="t mt-2 mb-1">Explore the latest in electronics and technology.</p>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <h4>Contact Us</h4>
+                    <p class="t"><i class="t fas fa-envelope"></i> Email: info@technovibe.com</p>
+                    <p class="t"><i class="t fas fa-phone"></i> Phone: +1 (123) 456-7890</p>
+                    <p class="t"><i class="t fas fa-map-marker-alt"></i> Address: 1234 Elm Street, City, Country</p>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Product" asp-action="AllProducts">All Products</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Support">Support</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+    //jquery for toggle dropdown menus
+    $(document).ready(function () {
+        //toggle sub-menus
+        $(".sub-btn").click(function () {
+            $(this).next(".sub-menu").slideToggle();
+        });
+
+        //toggle more-menus
+        $(".more-btn").click(function () {
+            $(this).next(".more-menu").slideToggle();
+        });
+    });
+
+    //javascript for the responsive navigation menu
+    var menu = document.querySelector(".menu");
+    var menuBtn = document.querySelector(".menu-btn");
+    var closeBtn = document.querySelector(".close-btn");
+
+    menuBtn.addEventListener("click", () => {
+        menu.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        menu.classList.remove("active");
+    });
+
+    //javascript for the navigation bar effects on scroll
+    window.addEventListener("scroll", function () {
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>

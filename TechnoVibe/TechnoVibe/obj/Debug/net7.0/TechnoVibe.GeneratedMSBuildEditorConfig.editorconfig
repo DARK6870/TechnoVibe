@@ -1,0 +1,133 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TechnoVibe
+build_property.RootNamespace = TechnoVibe
+build_property.ProjectDir = D:\Projects\TechnoVibe\TechnoVibe\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Projects\TechnoVibe\TechnoVibe
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Account/Views/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxWaWV3c1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Account/Views/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxWaWV3c1xSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Brands/Views/CreateBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQnJhbmRzXFZpZXdzXENyZWF0ZUJyYW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Brands/Views/EditBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQnJhbmRzXFZpZXdzXEVkaXRCcmFuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Brands/Views/IndexBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQnJhbmRzXFZpZXdzXEluZGV4QnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Categoryes/Views/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcnllc1xWaWV3c1xDcmVhdGVDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Categoryes/Views/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcnllc1xWaWV3c1xFZGl0Q2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Categoryes/Views/IndexCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcnllc1xWaWV3c1xJbmRleENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Orders/Views/EditOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXFZpZXdzXEVkaXRPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/Orders/Views/IndexOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJzXFZpZXdzXEluZGV4T3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/ProductCategoryes/Views/CreatePC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdENhdGVnb3J5ZXNcVmlld3NcQ3JlYXRlUEMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/ProductCategoryes/Views/IndexPC.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdENhdGVnb3J5ZXNcVmlld3NcSW5kZXhQQy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/ProductPage/Views/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFBhZ2VcVmlld3NcQ3JlYXRlUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/ProductPage/Views/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFBhZ2VcVmlld3NcRWRpdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Admin/SupportPage/Views/IndexSupport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU3VwcG9ydFBhZ2VcVmlld3NcSW5kZXhTdXBwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Home/Views/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxWaWV3c1xBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Home/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxWaWV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Home/Views/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxWaWV3c1xQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Home/Views/Support.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxWaWV3c1xTdXBwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Home/Views/SupportSucces.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxWaWV3c1xTdXBwb3J0U3VjY2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Products/Views/AllProducts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcVmlld3NcQWxsUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Products/Views/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcVmlld3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Products/Views/NotAvalible.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcVmlld3NcTm90QXZhbGlibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Products/Views/Succes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcVmlld3NcU3VjY2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/TechnoVibe/TechnoVibe/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-65v8al2b1d

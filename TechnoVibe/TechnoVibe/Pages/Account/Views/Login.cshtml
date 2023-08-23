@@ -1,0 +1,38 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-form bg-light shadow p-4 rounded-4">
+                <h2 class="text-center mb-4">Login</h2>
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group mt-3">
+                        <label asp-for="Email" class="font-weight-bold">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label asp-for="Password" class="font-weight-bold">Password</label>
+                        <input asp-for="Password" class="form-control" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input asp-for="RememberMe" type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="custom-control-label" asp-for="RememberMe" for="rememberMe">Remember Me</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-r btn-block mt-3">Login</button>
+                </form>
+                <p class="mt-4 text-center">Don't have an account? <a asp-area="" asp-controller="Account" asp-action="Register">Register</a> now</p>
+            </div>
+        </div>
+    </div>
+</div>
+

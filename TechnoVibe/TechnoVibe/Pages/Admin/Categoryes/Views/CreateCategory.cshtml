@@ -1,0 +1,31 @@
+﻿@model TechnoVibe.Entity.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-left: 2%;">
+<h1>Create category</h1>
+<div class="">
+    <div class="col-md-4">
+        <form asp-action="CreateCategory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoryName" class="control-label"></label>
+                <input required maxlength="20" asp-for="CategoryName" class="form-control" style="width: 330px;"/>
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-2" asp-action="IndexCategory">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

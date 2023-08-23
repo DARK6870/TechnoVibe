@@ -1,0 +1,31 @@
+﻿@model TechnoVibe.Entity.Brand
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-left: 2%;">
+<h1>Create Brand</h1>
+<div class="">
+    <div class="col-md-4">
+        <form asp-action="CreateBrand">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BrandName" class="control-label"></label>
+                <input required maxlength="20" asp-for="BrandName" class="form-control" style="width: 330px;" />
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-2" asp-action="IndexBrand">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

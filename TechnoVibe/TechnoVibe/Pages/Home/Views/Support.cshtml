@@ -1,0 +1,37 @@
+﻿@model Support
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow rounded">
+                <div class="card-body">
+                    <h2 class="card-title">Contact Support</h2>
+                    <form asp-action="PostSupport" asp-controller="Home" method="post">
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input required maxlength="40" type="email" asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Problem" class="form-label">Problem</label>
+                            <input required maxlength="50" type="text" asp-for="Problem" class="form-control" />
+                            <span asp-validation-for="Problem" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ProblemDescription" class="form-label">Problem Description</label>
+                            <textarea required maxlength="400" asp-for="ProblemDescription" class="form-control"></textarea>
+                            <span asp-validation-for="ProblemDescription" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card:hover{
+        transform: none!important;
+    }
+</style>

@@ -1,0 +1,151 @@
+﻿@model IEnumerable<TechnoVibe.Entity.Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+@inject UserManager<IdentityUser> userManager
+@using Microsoft.AspNetCore.Identity
+
+<style>
+    .table {
+        width: 96%;
+        margin: 0 2%;
+    }
+    h1, p{
+        margin: 0 2%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    td.actions {
+        text-align: center;
+    }
+
+    td.category-id {
+        width: 10%;
+    }
+</style>
+
+<h1>All Orders</h1>
+@{
+    var user = await userManager.GetUserAsync(User);
+}
+<p>ID: @user.Id</p>
+<table class="table table-striped table-bordered rounded custom-table" style="border-radius: 10px; overflow: hidden;">
+    <thead>
+        <tr class="table-primary">
+            <th class="category-id">
+                Id
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Statuss.StatusName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                DriverId
+            </th>
+            <th class="actions"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            if (await userManager.IsInRoleAsync(user, "Driver"))
+            {
+                if (item.AppUserId == user.Id && item.Statuss.StatusName == "In procesing")
+                {
+                    <tr>
+                        <td class="category-id">
+                            @Html.DisplayFor(modelItem => item.OrderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Products.Brands.BrandName)
+                            @Html.DisplayFor(modelItem => item.Products.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Statuss.StatusName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AppUserId)
+                        </td>
+                        <td class="actions">
+                            <div class="d-flex">
+                                <a asp-action="EditOrder" class="btn btn-success btn-sm-custom" asp-route-id="@item.OrderId">Edit</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+            <tr>
+                <td class="category-id">
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Products.Brands.BrandName)
+                        @Html.DisplayFor(modelItem => item.Products.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statuss.StatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUserId)
+                </td>
+                <td class="actions">
+                    <div class="d-flex">
+                        <a asp-action="EditOrder" class="btn btn-success btn-sm-custom" asp-route-id="@item.OrderId">Edit</a>
+            </div>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

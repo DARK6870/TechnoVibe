@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron banner text-center">
+                <img src="https://xstore.md/images/slider/2023/07/setup_Site_pc_ru.jpg" alt="Banner Image" class="img-fluid rounded-4">
+                <div class="banner-text text-center">
+                    <h1 class="mt-4">Welcome to TechnoVibe</h1>
+                    <p>Explore the latest in electronics and technology.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 pb-3">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">12-Month Warranty</h5>
+                    <p class="card-text">Enjoy peace of mind with our 12-month warranty on all products.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 pb-3">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-truck fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Fast Nationwide Delivery</h5>
+                    <p class="card-text">Experience quick and reliable delivery within 3 days across the country.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 pb-4">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-headset fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Excellent Customer Support</h5>
+                    <p class="card-text">Our dedicated support team is here to assist you whenever you need help.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="pt-3 text-center">Catalog:</h1>
+    <div class="row mt-3">
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Pc" })" style="text-decoration: none;">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-desktop fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Desktop PC</h5>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Laptop" })" style="text-decoration: none;">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-laptop fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Laptop</h5>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Headphones" })" style="text-decoration: none;">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-headphones fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Headphones</h5>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Mouse" })" style="text-decoration: none;">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-mouse fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Mouse</h5>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Keyboard" })" style="text-decoration: none;">
+            <div class="card text-center rounded-4">
+                <div class="card-body">
+                    <i class="fas fa-keyboard fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Keyboard</h5>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 pb-3">
+            <a href="@Url.Action("CategoryProducts", "Product", new { categoryName = "Monitor" })" style="text-decoration: none;">
+                <div class="card text-center rounded-4">
+                    <div class="card-body">
+                        <i class="fas fa-desktop fa-3x mb-3 text-primary"></i>
+                        <h5 class="card-title">Monitor</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+	</div>
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="AllProducts">View all catalog ></a>
+        </div>
+    </div>
+</div>
+<br/>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">

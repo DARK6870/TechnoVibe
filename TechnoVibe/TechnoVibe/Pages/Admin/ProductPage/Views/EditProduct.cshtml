@@ -1,0 +1,73 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div style="margin-left: 2%;">
+<h1>Edit Product</h1>
+<div class="">
+    <div class="col-md-4">
+        <form asp-action="EditProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ProductId" class="form-control" style="width: 330px;" />
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input required maxlength="50" asp-for="ProductName" class="form-control" style="width: 330px;" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <label asp-for="BrandId" class="control-label"></label>
+                    <input required min="1" asp-for="BrandId" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea required maxlength="300" asp-for="Description" class="form-control" style="width: 330px;" ></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input type="number" min="1" required asp-for="Price" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sale" class="control-label"></label>
+                    <input required min="0" asp-for="Sale" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Sale" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quanity" class="control-label"></label>
+                    <input required min="0" asp-for="Quanity" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Quanity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image1" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image1" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image2" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image2" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image3" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image3" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image3" class="text-danger"></span>
+                </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Save" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-2" asp-controller="Product" asp-action="AllProducts">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

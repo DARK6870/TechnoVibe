@@ -1,0 +1,85 @@
+﻿@model TechnoVibe.Pages.Admin.ProductPage.Models.NewProduct
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-left: 2%;">
+<h1>Create Product</h1>
+<div class="">
+    <div class="col-md-4">
+        <form asp-action="CreateProducts">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input required maxlength="50" asp-for="ProductName" class="form-control" style="width: 330px;" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <label asp-for="BrandId" class="control-label"></label>
+                    <select style="width: 330px;" required class="form-select border border-secondary" id="BrandId" onchange="updateInputValue(this, 'CT')">
+                        <option value=""></option>
+                        @foreach (var item in Model.Brands)
+                        {
+                            <option value="@item.BrandId">@item.BrandName</option>
+                        }
+                        </select>
+                    <input type="text" hidden class="w-100" id="CT" required name="BrandId">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea required maxlength="300" asp-for="Description" class="form-control" style="width: 330px;" ></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input type="number" required min="1" asp-for="Price" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sale" class="control-label"></label>
+                    <input required min="0" asp-for="Sale" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Sale" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quanity" class="control-label"></label>
+                    <input required min="0" asp-for="Quanity" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Quanity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image1" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image1" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image2" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image2" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image3" class="control-label"></label>
+                    <input required maxlength="200" asp-for="Image3" class="form-control" style="width: 330px;" />
+                    <span asp-validation-for="Image3" class="text-danger"></span>
+                </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-2" asp-controller="Product" asp-action="AllProducts">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+    function updateInputValue(selectElement, inputId) {
+        var inputElement = document.getElementById(inputId);
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        inputElement.value = selectedOption.value;
+    }
+</script>

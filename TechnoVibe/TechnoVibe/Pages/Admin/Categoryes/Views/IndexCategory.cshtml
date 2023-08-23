@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TechnoVibe.Entity.Category>
+
+@{
+    ViewData["Title"] = "Categoryes";
+}
+
+<style>
+    .table {
+        width: 96%;
+        margin: 0 2%;
+    }
+    h1, p{
+        margin: 0 2%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    td.actions {
+        text-align: center;
+    }
+
+    td.category-id {
+        width: 10%;
+    }
+</style>
+
+<h1>All Categoryes</h1>
+
+<p>
+    <a class="btn btn-dark mb-2" asp-action="CreateCategory">Create New</a>
+</p>
+<table class="table table-striped table-bordered rounded custom-table" style="border-radius: 10px; overflow: hidden;">
+    <thead>
+        <tr class="table-primary">
+            <th class="category-id">
+                Id
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th class="actions"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td class="category-id">
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td class="actions">
+                    <div class="d-flex">
+                        <a asp-action="EditCategory" class="btn btn-success btn-sm-custom" asp-route-id="@item.CategoryId">Edit</a>
+                <form style="margin-left: 1%;" action="@Url.Action("DeleteCategory", "Categories", new { id = item.CategoryId })" onsubmit="return confirm('Are you sure you want to delete this item?')">
+                            <button type="submit" class="btn btn-danger btn-sm-custom">Delete</button>
+                </form>
+            </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

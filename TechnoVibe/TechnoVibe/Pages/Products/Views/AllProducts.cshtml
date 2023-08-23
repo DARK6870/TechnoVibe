@@ -1,0 +1,254 @@
+﻿@model AllProductModel
+@{
+    List<string> brand = ViewBag.selectedBrands as List<string> ?? new List<string>();
+    List<string> category = ViewBag.selectedCategories as List<string> ?? new List<string>();
+    string sortOption = ViewBag.sortOption;
+
+    ViewData["Title"] = "Products";
+}
+<div class="container">
+<h1>@Model.categoryName</h1>
+    <div class="row mt-2">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+            <div class="cards bg-light p-3 rounded shadow-lg mb-4">
+                <h5 class="card-title text-center mb-3">Filters</h5>
+                <button class="btn btn-link d-block d-md-none fw-bold" style="text-decoration: none; color: #2C3E50;" type="button" data-toggle="collapse" data-target="#filtersCollapse" aria-expanded="false">
+                    Open Filters
+                </button>
+                <div class="collapse d-md-block" id="filtersCollapse">
+                    <form action="@Model.actionName">
+                        @*</><div class="input-group mb-3 mt-2">
+                            <input type="text" class="form-control" placeholder="Search products" aria-label="Search products" aria-describedby="searchButton">
+                            <button asp-area="" asp-controller="Product" asp-action="Search" class="btn btn-outline-primary" type="button" id="searchButton">Search</button>
+                        </div>*@
+                        <input type="hidden" name="categoryName" value="@Model.categoryName"/>
+                        <div class="form-group">
+                            <label class="fw-bold">Sort by: </label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortOption" id="none" value="none" checked="@((string)ViewBag.sortOption == "none" ? "checked" : null)">
+                                <label class="form-check-label" for="none">
+                                    None
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortOption" id="lowToHigh" value="lowToHigh" checked="@((string)ViewBag.sortOption == "lowToHigh" ? "checked" : null)">
+                                <label class="form-check-label" for="lowToHigh">
+                                    Price: Low to High
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortOption" id="highToLow" value="highToLow" checked="@((string)ViewBag.sortOption == "highToLow" ? "checked" : null)">
+                                <label class="form-check-label" for="highToLow">
+                                    Price: High to Low
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortOption" id="A-Z" value="A-Z" checked="@((string)ViewBag.sortOption == "A-Z" ? "checked" : null)">
+                                <label class="form-check-label" for="A-Z">
+                                    Name: A-Z
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sortOption" id="Z-A" value="Z-A" checked="@((string)ViewBag.sortOption == "Z-A" ? "checked" : null)">
+                                <label class="form-check-label" for="Z-A">
+                                    Name: Z-A
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="fw-bold">Brands: </label>
+                            <button type="button" style=" text-decoration: none; color: #2C3E50; font-weight: 500;" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#brandModal">
+                                Open menu ->
+                            </button>
+                        </div>
+
+                        
+                        <div class="modal fade" id="brandModal" tabindex="-1" aria-labelledby="brandModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="brandModalLabel">Select Brands</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @foreach (var item in Model.Brands.Select(x => x.BrandName).Distinct())
+                                        {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@item" id="@("modalFlexCheck_" + item)" name="selectedBrands" checked="@brand.Contains(item)">
+                                                <label class="form-check-label" for="@("modalFlexCheck_" + item)">
+                                                    @item
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group" style="margin-top: 10px">
+                            <label class="fw-bold">Categories</label>
+                            <button type="button" class="btn btn-link" style=" text-decoration: none; color: #2C3E50; font-weight: 500;" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                                Open menu ->
+                            </button>
+                        </div>
+
+                        
+                        <!-- Модальное окно для категорий -->
+                        <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="categoryModalLabel">Select Categories</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body modal-scroll">
+                                        @foreach (var item in Model.Categories.Select(x => x.CategoryName).Distinct())
+                                        {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@item" id="@("modalFlexCheckCategory_" + item)" name="selectedCategories" checked="@(category.Contains(item) ? "checked" : null)">
+                                                <label class="form-check-label" for="@("modalFlexCheckCategory_" + item)">
+                                                    @item
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="text-center mt-3">
+                            <button class="btn btn-primary" type="submit">Apply Filters</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-9">
+            <div class="row product-card-container">
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card shadow-lg h-100 rounded-3">
+                            @if (Model.categoryName.Contains("All"))
+                            {
+                                <h5 class="card-title text-center mt-3">@item.Brands.BrandName @item.ProductName</h5>
+                            }
+                            else
+                            {
+                                <h5 class="card-title text-center mt-3">@Model.categoryName @item.Brands.BrandName @item.ProductName</h5>
+                            }
+                            <a href="@Url.Action("Details", "Product", new { id = item.ProductId })" class="mt-2">
+                                <div class="product-image-container d-flex justify-content-center align-items-center position-relative" style="max-height: 350px; overflow: hidden;">
+                          
+                                    <img src="@item.Image1" alt="Product Photo" class="product-img-top">
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    @if (item.Sale > 0)
+                                    {
+                                        decimal discountedPrice = item.Price - (item.Price * (decimal)item.Sale / 100);
+                                        <span class="text-danger fw-medium">SALE: $@discountedPrice</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Price: $@item.Price</span>
+                                    }
+
+                                    <a class="btn btn-primary" href="@Url.Action("Details", "Product", new { id = item.ProductId })" >Order now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Pagination -->
+                <div class="col-12">
+                    <nav class="text-center" aria-label="Product Pagination">
+                        <ul class="pagination justify-content-center">
+                            
+                            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                                <a class="page-link" href="@Url.Action("AllProducts", new { selectedBrands = ViewBag.selectedBrands, selectedCategories = ViewBag.selectedCategories, sortOption = ViewBag.sortOption, page = Model.PageNumber - 1 })">Previous</a>
+                            </li>
+
+                            @for (int i = Math.Max(1, Model.PageNumber - 1); i <= Math.Min(Model.TotalPages, Model.PageNumber + 1); i++)
+                            {
+                                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                                    <a class="page-link" href="@Url.Action("AllProducts", new { selectedBrands = ViewBag.selectedBrands, selectedCategories = ViewBag.selectedCategories, sortOption = ViewBag.sortOption, page = i })">@i</a>
+                                </li>
+                            }
+
+                            
+                            <li class="page-item @(Model.PageNumber == Model.TotalPages ? "disabled" : "")">
+                                <a class="page-link" href="@Url.Action("AllProducts", new { selectedBrands = ViewBag.selectedBrands, selectedCategories = ViewBag.selectedCategories, sortOption = ViewBag.sortOption, page = Model.PageNumber + 1 })">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cards {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img-top {
+        max-height: 320px;
+        max-width: 100%; 
+        width: auto;
+    }
+
+    .form-check {
+        margin-bottom: 0.5rem;
+    }
+
+    .pagination .page-item .page-link {
+        color: white;
+        background: #2C3E50;
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #638EF1;
+        border-color: #2C3E50;
+    }
+
+    .pagination .page-link:hover {
+        transform: scale(0.9);
+    }
+
+    .pagination .page-link {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .product-card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
