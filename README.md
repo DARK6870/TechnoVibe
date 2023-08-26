@@ -2,7 +2,7 @@
 Project Name: **TechnoVibe**                    
 Creation Date: **August 2023**
 
-Technologies used in the project:<br>
+Technologies used in this project:<br>
 C# .NET, ASP.NET MVC,<br>
 Entity, Identity framework - for working with database,<br>
 Vertical slices - for grouping the project structure and methods,<br>
